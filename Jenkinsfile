@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t jith/nodeapp:$BUILD_NUMBER .'
+                sh 'sudo docker build -t jith/nodeapp:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push jith/nodeapp:$BUILD_NUMBER'
+                sh ' sudo docker push jith/nodeapp:$BUILD_NUMBER'
             }
         }
 }
